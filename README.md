@@ -5,4 +5,9 @@ Table values auto-fill with royalties per sale.
 
 # Screenshot 
 
+FindAway Royalties calculator
+
 ![screenshot](screenshot.png)
+
+Audiobook production cost calculator 
+![bookcost](bookcost.png)
