@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-#app .inputfields .inputretail, #app .inputfields .inputlibrary, #app .inputfields .inputhours {
+#app .inputfields .inputretail, #app .inputfields .inputlibrary, #app .inputfields .inputhours, #app .inputfields .inputwordcount, #app .inputfields .inputpfh {
   display: flex;
   flex-direction: row;
 }

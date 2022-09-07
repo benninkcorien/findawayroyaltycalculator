@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://unpkg.com/vue@3"></script>
+	<link rel="stylesheet" href="style.css">
+	<title>Audiobook cost Calculator</title>
+</head>
+<body>
+	<div id="app">
+
+		<div class="inputfields">
+			<h1>Estimated audiobook production cost</h1>
+			<p>The table will automatically fill with data when you enter your numbers.</p>
+			<div class="inputwordcount">
+				<p>How many words :</p>
+				<input v-model="wordcount" type="text">
+			</div>
+			<div class="inputpfh">
+				<p>PFH ($ per finished hour) Rate you pay your narrator:</p>
+				<input v-model="pfh" type="text">
+			</div>
+			<div class="wordtohours">
+				<p>This by default is set to: 10.000 words is 1 recorded hour. Feel free to change it.</p>
+				<input v-model="thewords" type="text"> words is <input v-model="thehours" type="text"> hours of
+				recording.
+			</div>
+		</div>
+
+		<div class="footnotes">
+
+			<p> You are calculating for {{ words_in_one_hour }} words in 1 hour of recording</p>
+			<p>
+				Your book ( with a wordcount of {{ wordcount }} words ) is approximately {{}} narrated hours long.
+			</p>
+			<p> You are paying your narrator ${{ pfh }} per finished hour. <br>
+			Your book will be approximately {{ parseFloat(wordcount/words_in_one_hour).toFixed(1) }} hours long </p>
+
+			<table class="resultstable">
+				<thead>
+					<th>Hours</th>
+					<th>Total cost</th>
+				</thead>
+				<tr>
+					<td><span v-if="wordcount > 0">  {{ parseFloat((wordcount/words_in_one_hour) -1).toFixed(1) }}</span><span v-else>0</span></td>
+					<td><span v-if="wordcount > 0">$ {{ (parseFloat((wordcount/words_in_one_hour) -1).toFixed(1)) * pfh }}</span><span v-else>0</span></td>
+				</tr>
+				<tr>
+					<td><span v-if="wordcount > 0">  {{ parseFloat(wordcount/words_in_one_hour).toFixed(1) }}</span><span v-else>0</span></td>
+					<td><span v-if="wordcount > 0">$ {{ (parseFloat(wordcount/words_in_one_hour).toFixed(1)) * pfh }}</span><span v-else>0</span></td>
+				</tr>
+				<tr>
+					<td><span v-if="wordcount > 0">  {{ parseFloat((wordcount/words_in_one_hour) +1).toFixed(1) }}</span><span v-else>0</span></td>
+					<td><span v-if="wordcount > 0"> $ {{ (parseFloat((wordcount/words_in_one_hour) +1).toFixed(1)) * pfh }}</span><span v-else>0</span></td>
+				</tr>
+			</table>
+		</div>
+
+
+	</div>
+	<script>
+		let app = Vue.createApp({
+			data: function () {
+				return {
+					wordcount: 0,
+					pfh: 0,
+					thewords: 10000,
+					thehours: 1,
+					onehourwords: 10000
+
+				};
+			},
+			methods: {
+				formatNumber(num) {
+					return parseFloat(num).toFixed(2)
+				},
+
+			},
+			computed: {
+				words_in_one_hour: function () {
+					return parseFloat(this.thewords / this.thehours).toFixed(0)
+				}, 
+				 
+			}
+		});
+		app.mount("#app");
+	</script>
+</body>
+</html>
