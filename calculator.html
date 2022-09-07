@@ -398,11 +398,11 @@
 					<td>Overdrive</td>
 					<td>
 						<span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.79</span>
-						<span v-else>{{ booklibraryprice * 0.08 }}</span>
+						<span v-else>{{ parseFloat(booklibraryprice * 0.08).toFixed(2) }}</span>
 					</td>
 
 					<td><span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.20</span>
-						<span v-else>{{ booklibraryprice * 0.02 }}</span></td>
+						<span v-else>{{ parseFloat(booklibraryprice * 0.02).toFixed(2) }}</span></td>
 				</tr>
 				<tr class="retail45">
 					<td>Ulverscroft</td>
