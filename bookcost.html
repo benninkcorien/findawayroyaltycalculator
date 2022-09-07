@@ -33,7 +33,8 @@
 
 			<p> You are calculating for {{ words_in_one_hour }} words in 1 hour of recording</p>
 			<p>
-				Your book has a wordcount of <span v-if="wordcount > 0">{{ wordcount }}</span> <span v-else>unknown</span> words. <br>
+				Your book has a wordcount of <span v-if="wordcount > 0">{{ wordcount }}</span> <span
+					v-else>unknown</span> words. <br>
 				You are paying your narrator ${{ pfh }} per finished hour. <br>
 				Your book will be approximately {{ parseFloat(wordcount/words_in_one_hour).toFixed(1) }} hours long </p>
 
@@ -43,27 +44,38 @@
 					<th>Total cost</th>
 				</thead>
 				<tr>
-					<td><span v-if="wordcount > 0">
-							{{ parseFloat((wordcount/words_in_one_hour) -1).toFixed(1) }}</span><span v-else>0</span>
+					<td>
+						<span v-if="wordcount > 0">
+							{{ parseFloat((wordcount/words_in_one_hour) - 1).toFixed(1) }}
+						</span>
+						<span v-else>0</span>
 					</td>
-					<td><span v-if="wordcount > 0">$
-							{{ (parseFloat((wordcount/words_in_one_hour) -1).toFixed(1)) * pfh }}</span><span
-							v-else>0</span></td>
+					<td>
+						<span v-if="wordcount > 0">$
+							{{ parseFloat(((wordcount/words_in_one_hour) - 1) * pfh).toFixed(2) }}
+						</span>
+						<span v-else>0</span></td>
 				</tr>
 				<tr>
-					<td><span v-if="wordcount > 0"> {{ parseFloat(wordcount/words_in_one_hour).toFixed(1) }}</span><span
-							v-else>0</span></td>
-					<td><span v-if="wordcount > 0">$
-							{{ (parseFloat(wordcount/words_in_one_hour).toFixed(1)) * pfh }}</span><span v-else>0</span>
+					<td>
+						<span v-if="wordcount > 0"> {{ parseFloat(wordcount/words_in_one_hour).toFixed(1) }}</span>
+						<span v-else>0</span>
+					</td>
+					<td>
+						<span v-if="wordcount > 0">$
+							{{ parseFloat((wordcount/words_in_one_hour) * pfh).toFixed(2) }}</span>
+						<span v-else>0</span>
 					</td>
 				</tr>
 				<tr>
-					<td><span v-if="wordcount > 0">
-							{{ parseFloat((wordcount/words_in_one_hour) +1).toFixed(1) }}</span><span v-else>0</span>
+					<td>
+						<span v-if="wordcount > 0">
+							{{ parseFloat((wordcount/words_in_one_hour) +1).toFixed(1) }}</span>
+						<span v-else>0</span>
 					</td>
 					<td><span v-if="wordcount > 0"> $
-							{{ (parseFloat((wordcount/words_in_one_hour) +1).toFixed(1)) * pfh }}</span><span
-							v-else>0</span></td>
+							{{ parseFloat(((wordcount/words_in_one_hour) +1 ) * pfh).toFixed(2) }}</span>
+						<span v-else>0</span></td>
 				</tr>
 			</table>
 		</div>
