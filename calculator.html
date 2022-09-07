@@ -396,10 +396,13 @@
         </tr>
         <tr class="retail45">
           <td>Overdrive</td>
-          <td><span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.99</span>
+          <td>
+            <span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.79</span>
             <span v-else>{{ booklibraryprice * 0.08 }}</span>
+          </td>
 
-          <td>-</td>
+          <td><span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.20</span>
+            <span v-else>{{ booklibraryprice * 0.02 }}</span></td>
         </tr>
         <tr class="retail45">
           <td>Ulverscroft</td>
@@ -429,8 +432,8 @@
       </tbody>
     </table>
     <div class="footnotes">
-      <p>Cost per Checkout Pricing will be set as follows for Overdrive: <br>
-        The Cost per Checkout Price shall be either 8% of the SLP or $0.99, whichever is greater. </p>
+      <p>Cost per Checkout Pricing for Overdrive: <br>
+        either 8% of the SLP or $0.99, whichever is greater. </p>
 
       <p>Author share for Hoopla are based on length of the book in minutes</p>
 
