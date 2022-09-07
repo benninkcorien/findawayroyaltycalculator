@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Findaway Royalty Calculator</title>
+</head>
+<body>
+  <div id="app">
+
+    <div class="inputfields">
+      <h1>Findaway Royalty Calculator</h1>
+      <p> Enter your Retail price, your price for Libraries and the length of the book in minutes below</p>
+      <p>The table will automatically fill with data</p>
+      <div class="inputretail">
+        <p>Your Retail price :</p>
+        <input v-model="bookretailprice" type="text">
+      </div>
+      <div class="inputlibrary">
+        <p>Your Library price :</p>
+        <input v-model="booklibraryprice" type="text">
+      </div>
+      <div class="inputhours">
+        <p>How many minutes is your audiobook :</p>
+        <input v-model="recordedminutes" type="text">
+      </div>
+    </div>
+
+
+    <table class="resultstable">
+      <thead>
+        <tr>
+          <th>Retail</th>
+          <th>Author gets *</th>
+          <th>Findaway gets *</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="3" class="subsection"  >A la carte</td>
+        </tr>
+        <tr class="retail45">
+          <td>24Symbols</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Apple Books</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Baja Libros</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Bokus Play</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Books-a-Million</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Chirp</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>eStories</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Hummingbird</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Instaread</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Kobo</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Libro.FM</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>My Audiobook Library</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Radish</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>3Leaf Group</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.45 * 0.2) }} </td>
+        </tr>
+        <tr class="retail50">
+          <td>Audiobooks.com</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.2) }}</td>
+        </tr>
+        <tr class="retail50">
+          <td>AudiobooksNow</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.2) }}</td>
+        </tr>
+        <tr class="retail50">
+          <td>Barnes &amp; Noble</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.2) }}</td>
+        </tr>
+        <tr class="retail50">
+          <td>Binge Books</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.2) }}</td>
+        </tr>
+        <tr class="retail50">
+          <td>Google</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.50 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Unlimited Subscription</td>
+        </tr>
+        <tr class="retail32">
+          <td>Cliq Digital</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Leamos</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Credit based Subscription</td>
+        </tr>
+        <tr class="retail32">
+          <td>24Symbols</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Barnes &amp; Noble</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>eStoreis</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Cliq Digital</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Kobo</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>LibroFM</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>My Audiobook Library</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail40">
+          <td>Audiobooks.com</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Combined Portions Subscription</td>
+        </tr>
+        <tr class="retail32">
+          <td>Bookmate</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Nextory</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">RevenueShare **</td>
+        </tr>
+        <tr>
+          <td>Anyplay</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Beek</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Kobo</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Milkbox</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Radish</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Scribd</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td>Storytel</td>
+          <td>Varied chunk from revenue pool</td>
+          <td>Varied chunk from revenue pool</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Transactional Revenue Share</td>
+        </tr>
+        <tr class="retail70">
+          <td>Authors Direct</td>
+          <td>{{ formatNumber(bookretailprice * 0.70 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.70 * 0.2) }}</td>
+        </tr>
+        <tr class="retail40">
+          <td>Downpour A la carte</td>
+          <td>{{ formatNumber(bookretailprice * 0.40 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.40 * 0.2) }}</td>
+        </tr>
+        <tr class="retail32">
+          <td>Downpour Credit Sub</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.32 * 0.2) }}</td>
+        </tr>
+        <tr class="retail25">
+          <td>Amazon</td>
+          <td>{{ formatNumber(bookretailprice * 0.25 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.25 * 0.2) }}</td>
+        </tr>
+        <tr class="retail25">
+          <td>Audible</td>
+          <td>{{ formatNumber(bookretailprice * 0.25 * 0.8) }}</td>
+          <td>{{ formatNumber(bookretailprice * 0.25 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">
+            <h3>LIBRARY/SCHOOL/MILITARY</h3>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Library A la carte</td>
+        </tr>
+        <tr class="retail45">
+          <td>Axiell</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Baker &amp; Taylor</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Bibliotheca</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Bidi</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>EBSCO</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Follett</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Hoopla</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>MLOL</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Odilo</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Overdrive</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Ulverscroft</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>Wheelers</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr class="retail45">
+          <td>3Leaf Group</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.8) }}</td>
+          <td>{{ formatNumber(booklibraryprice * 0.45 * 0.2) }}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="subsection">Library Cost per checkout ***</td>
+        </tr>
+        <tr class="retail45">
+          <td>Baker &amp; Taylor</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+
+        <tr class="retail45">
+          <td>Bibliotheca</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+        <tr class="retail45">
+          <td>Bidi</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+        <tr class="retail45">
+          <td>MLOL</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+        <tr class="retail45">
+          <td>Odilo</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+        <tr class="retail45">
+          <td>Overdrive</td>
+          <td><span v-if="booklibraryprice * 0.08 > 0 && booklibraryprice * 0.08 < 0.99">0.99</span>
+            <span v-else>{{ booklibraryprice * 0.08 }}</span>
+
+          <td>-</td>
+        </tr>
+        <tr class="retail45">
+          <td>Ulverscroft</td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.80</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">1.59</span>
+            <span v-else-if="booklibraryprice > 25.01">2.39</span></td>
+          <td><span v-if="booklibraryprice > 0 && booklibraryprice < 15">0.19</span>
+            <span v-else-if="booklibraryprice > 15.01 && booklibraryprice < 25">0.40</span>
+            <span v-else-if="booklibraryprice > 25.01">0.60</span></td>
+        </tr>
+        <tr class="retail45">
+          <td>Hoopla</td>
+          <td>
+            <span v-if="recordedminutes > 0 && recordedminutes < 90">0.24 </span>
+            <span v-else-if="recordedminutes > 91 && recordedminutes < 180">0.34</span>
+            <span v-else-if="recordedminutes > 181 && recordedminutes < 300">0.49</span>
+            <span v-else-if="recordedminutes > 301 && recordedminutes < 420">0.64</span>
+            <span v-else-if="recordedminutes > 421 && recordedminutes < 540">0.74</span>
+            <span v-else-if="recordedminutes > 541 && recordedminutes < 660">0.84</span>
+            <span v-else-if="recordedminutes > 661 && recordedminutes < 780">0.99</span>
+            <span v-else-if="recordedminutes > 781 && recordedminutes < 960">1.14</span>
+            <span v-else-if="recordedminutes > 961 && recordedminutes < 1080">1.24</span>
+            <span v-else-if="recordedminutes > 1081 && recordedminutes < 9999">1.34</span>
+          </td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="footnotes">
+      <p>Cost per Checkout Pricing will be set as follows for Overdrive: <br>
+        The Cost per Checkout Price shall be either 8% of the SLP or $0.99, whichever is greater. </p>
+
+      <p>Author share for Hoopla are based on length of the book in minutes</p>
+
+      <p>* Rights Holder get 80%, Findaway gets 20%</p>
+
+      <p>** Royalty receipts under these models paid based on the retailer's revenues, not SRP/SLP.</p>
+      <p> *** Cost per Checkout royalties are based on price <br>
+        <ul>
+          <li>SLP of $15 and under = $.99 </li>
+          <li>SLP of $15.01 to $25 = $1.99</li>
+          <li>SLP of $25.01 and above = $2.99</li>
+        </ul>
+      </p>
+
+      <p>Table colors:</p>
+      <ul>
+        
+ 
+        <li class="retail70">Retailer pays 70%</li>
+        <li class="retail50">Retailer pays 50%</li>
+        <li class="retail40">Retailer pays 40%</li>
+        <li class="retail32">Retailer pays 32%</li>
+        <li class="retail25">Retailer pays 25%</li>
+         
+      </ul>
+    </div>
+
+  </div>
+  <script>
+    let app = Vue.createApp({
+      data: function () {
+        return {
+          bookretailprice: 0,
+          booklibraryprice: 0,
+          recordedminutes: 0
+        };
+      },
+      methods: {
+        formatNumber(num) {
+          return parseFloat(num).toFixed(2)
+        },
+      }
+    });
+    app.mount("#app");
+  </script>
+</body>
+</html>

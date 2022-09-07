@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap");
+body {
+  background: #fff;
+  font-family: "Lato", sans-serif;
+}
+
+#app .inputfields {
+  color: black;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: #bde9ec;
+  display: flex;
+  flex-direction: column;
+}
+#app .inputfields .inputretail, #app .inputfields .inputlibrary, #app .inputfields .inputhours {
+  display: flex;
+  flex-direction: row;
+}
+#app .inputfields input {
+  height: 24px;
+  width: 150px;
+  margin: 10px 5px;
+}
+
+table.resultstable {
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+table.resultstable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #048BA8;
+  color: white;
+}
+table.resultstable td, table.resultstable th {
+  border: 1px solid #4db7cf;
+  padding: 8px;
+}
+
+.subsection {
+  background-color: #096174;
+  color: white;
+  text-align: center;
+}
+
+.retail70 {
+  background-color: #b9fbc0;
+}
+
+.retail50 {
+  background-color: #98f5e1;
+}
+
+.retail45 {
+  background-color: #8eecf5;
+}
+
+.retail40 {
+  background-color: #90dbf4;
+}
+
+.retail32 {
+  background-color: #a3c4f3;
+}
+
+.retail25 {
+  background-color: #ffcfd2;
+}
+
+.footnotes {
+  width: 70%;
+  margin: 0 auto;
+}/*# sourceMappingURL=style.css.map */
